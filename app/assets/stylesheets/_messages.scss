@@ -1,8 +1,3 @@
-.flash-box{
-    height:25px;
-    width: 100%;
-    background-color: #38AEF0;
-}
 .header {
     height: 100px;
     width: 100%;
@@ -29,7 +24,7 @@
         color: $white;
         font-size: 16px;
         font-weight: bold;
-        line-height: 120px;
+        line-height: 100px;
         padding-left: 20px;
     }
     &__icon{
@@ -141,53 +136,51 @@
         bottom: 0;
         position: absolute;
         z-index: 1;
-            .input-box{
-                display: block;
+        .input-box{
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            width: 80%;
+            float: left;
+            margin: 20px 10px 20px 40px;
+            color: #434a54;
+            position: relative;
+            
+            &__text{
                 height: 50px;
-                line-height: 50px;
-                width: 80%;
-                float: left;
-                margin: 20px 10px 20px 40px;
-                color: #434a54;
-                position: relative;
-              
-                &__image{
-                    #message_image { 
-                        opacity: 0.5;
-                        cursor: pointer;
-                        display: none; 
-                        width: 15px;
-                    } 
-                }
-            }
-            input{
-                height: 50px;
-                line-height: 50px;
                 width: 100%;
                 padding-left: 10px;
                 font-size: 16px; 
-            }  
-            lavel{
-                position: absolute;
-                top: 0;
-                right:0;
-                font-size: 20px;
             }
+
+            &__btn{
+                font-size: 1.3rem;
+                position: absolute;
+                top: 30px;
+                right: 20%;
+                cursor: pointer;
+            }
+
+            &__image__file{
+                display: none;
+            }
+
+        }
+    }
+                
             
-        &__btn{
+            
+        .submit-btn{
             padding: 0px 20px;
             margin: 20px 40px 20px 0px;
             display: block;
-            width: 70px;
+            width: 100px;
             height: 50px;
+            color: white;
             background-color: #38AEF0;
             text-align: center;
             line-height: 50px;
             float: right;
-            .form__btn{
-                color: white;
-                text-decoration: none;
-            }
-        }
-    }   
+        }   
 }
+
