@@ -1,0 +1,193 @@
+.flash-box{
+    height:25px;
+    width: 100%;
+    background-color: #38AEF0;
+}
+.header {
+    height: 100px;
+    width: 100%;
+    border-bottom:5px solid #eeeeee;
+    position: fixed;
+    z-index: 1;
+
+    &__top{
+        height:25px;
+        width: 100%;
+        background-color: #38AEF0;
+     }
+     &__message{
+         color: white;
+         text-align: center;
+     }
+     
+    &__left  {
+        height: 100px;
+        width: 300px;
+        background-color: #253141;        
+    }
+    &__text{
+        color: $white;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 120px;
+        padding-left: 20px;
+    }
+    &__icon{
+        color: $white;
+        line-height: 100px;
+        float: right;
+        &--cog{
+            padding-right: 20px;
+            padding-left: 5px;
+        }
+    }
+    &__right {
+        float: right;
+        height: 100px;
+        width: calc(100vw - 315px);
+        border-bottom: 2px solid #eeeeee;
+    }
+    &__title{
+        float: left;
+        font-size: 20px;
+        color: #333333;
+        padding: 35px 0px 15px 40px;
+    }
+    &__contents{
+        color: #999999;
+        font-size: 12px;
+        padding-top: 15px;
+        
+    }
+    &__btn{
+        padding: 0px 20px 0px 20px;
+        margin: 28px 40px ;
+        display: block;
+        width: 40px;
+        height: 40px;
+        color: #38AEF0;
+        border:1px solid #38AEF0;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        float: right;
+      }
+}
+
+.contents {
+    background-color: #fafafa;
+    height: calc(100vh - 96px);
+    width: 100%;
+    &__left  {
+        background-color: #2f3e51;
+        height: 100%;
+        width: 300px;
+        float: left;
+    }
+    &__title {
+        color: $white;
+        font-weight: bold;
+        font-size: 15px;
+        padding: 20px 0px 5px 20px;
+    }
+    &__text {
+        color: $white;
+        font-weight: bold;
+        font-size: 11px;
+        padding: 0px 0px 40px 20px;
+    }
+
+    &__main {
+        height: 100%;
+        width: calc(100vw - 315px);
+        float: right;
+        position: relative;
+    }
+    &__name1 {
+        font-weight: bold;
+        font-size: 16px;
+        color: #434a54;
+        padding: 40px 10px 10px 40px;
+        span {
+            font-size: 12px;
+            color: #999999;
+            }
+    }
+    &__message1 {
+        font-size: 14px;
+        color: #434a54;
+        padding: 0px 0px 40px 40px;
+    }
+    &__name2 {
+        font-weight: bold;
+        font-size: 16px;
+        color: #434a54;
+        padding: 0px 10px 10px 40px;
+        span {
+            font-size: 12px;
+            color: #999999;
+            }
+    }
+    &__message2 {
+        font-size: 14px;
+        color: #434a54;
+        padding: 0px 0px 40px 40px;
+    }
+    .footer {
+        height: 90px;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #ddd;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+            .input-box{
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                width: 80%;
+                float: left;
+                margin: 20px 10px 20px 40px;
+                color: #434a54;
+                position: relative;
+              
+                &__image{
+                    #message_image { 
+                        opacity: 0.5;
+                        cursor: pointer;
+                        display: none; 
+                        width: 15px;
+                    } 
+                }
+            }
+            input{
+                height: 50px;
+                line-height: 50px;
+                width: 100%;
+                padding-left: 10px;
+                font-size: 16px; 
+            }  
+            lavel{
+                position: absolute;
+                top: 0;
+                right:0;
+                font-size: 20px;
+            }
+            
+        &__btn{
+            padding: 0px 20px;
+            margin: 20px 40px 20px 0px;
+            display: block;
+            width: 70px;
+            height: 50px;
+            background-color: #38AEF0;
+            text-align: center;
+            line-height: 50px;
+            float: right;
+            .form__btn{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }   
+}
