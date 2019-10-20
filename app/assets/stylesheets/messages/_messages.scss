@@ -9,10 +9,10 @@
   float: left;
   .header {
       box-sizing: border-box;
+      display: inline-block;
       height: 100px;
       padding: 0 40px;
       .left-header {
-        float: left;
         &__title {
           color: #333;
           font-size: 20px;
@@ -22,6 +22,7 @@
           color: $light_gray;
           font-size: 12px;
           margin-top: 15px;
+          float: left;
           .member {
             display: inline-block;
             padding-right: 5px;
@@ -36,6 +37,8 @@
         line-height: 40px;
         margin-top: 28px;
         padding: 0 20px;
+        display: inline-block;
+        box-sizing: border-box;
         &__button {
           color: $light_blue;
           text-decoration: none;
