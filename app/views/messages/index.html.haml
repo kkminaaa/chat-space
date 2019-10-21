@@ -23,24 +23,16 @@
     .left-header
       .left-header__title
         = @group.name
-    - @group.group_users.each do |group_user|
       .left-header__members
-        .member
-          = group_user.user.name
+        Members:
+        - @group.group_users.each do |group_user|
+          .member
+            = group_user.user.name
     .right-header
       .right-header__button
         Edit
-
   .messages
-    .message
-      .upper-message
-        .upper-message__user-name
-          mina
-        .upper-message__date
-          2019/10/21 17:03
-      .lower-message
-        .lower-message__content
-          おはよう
+    = render @messages
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'

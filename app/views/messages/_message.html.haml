@@ -1,16 +1,11 @@
-%chat
-    .header
-        .left-header 
-            .header__title
-                グループを作成しました
-            .header__members
-                Members: inu neko
-                .member
-         .right-header 
-              .right-header__button
-                  =link_to "#", class: "header__iconedit" do
-                      = fa_icon 'edit'
-                  =link_to "#", class: "header__icon--cog" do
-                      = fa_icon 'cog'
-
-
+.message
+  .upper-message
+    .upper-message__user-name
+      = message.user.name
+    .upper-message__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .lower-message
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
