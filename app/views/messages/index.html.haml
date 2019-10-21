@@ -10,14 +10,36 @@
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
   .groups
-    .group
-      - current_user.groups.each do |group|
-        = link_to '#' do
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません。
- 
-                        
+            = group.show_last_message
 
-            
+.chat-main
+  .header
+    .left-header
+      .left-header__title
+        = @group.name
+      .left-header__members
+        Members:
+        - @group.group_users.each do |group_user|
+          .member
+            = group_user.user.name
+    .right-header
+      .right-header__button
+        Edit
+  .messages
+    = render @messages
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
+
+    

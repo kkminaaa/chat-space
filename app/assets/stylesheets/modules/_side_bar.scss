@@ -1,7 +1,10 @@
 .side-bar {
+  display: inline-block;
   box-sizing: border-box;
   color: $white;
   width: 300px;
+  float: left;
+  position: relative;
   .header {
     background-color: $side_blue_dark;
     height: 100px;
@@ -44,3 +47,4 @@
     }
   }
 }
+

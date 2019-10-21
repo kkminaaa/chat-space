@@ -1,162 +1,116 @@
-.side-bar {
-    box-sizing: border-box;
-    color: $white;
-    width: 300px;
-    .header {
-      background-color: $side_blue_dark;
+.chat-main{
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin:0;
+  width: calc(100vw - 300px);
+  height: 100%;
+  position: absolute;
+  float: left;
+  .header {
+      box-sizing: border-box;
       height: 100px;
-      line-height: 100px;
-      padding: 0 20px;
-      &__name {
+      padding: 0 40px;
+      .left-header {
         display: inline-block;
-        font-size: $side_header_font;
-        font-weight: bold;
+        &__title {
+          color: #333;
+          font-size: 20px;
+          margin-top: 35px;
+        }
+        &__members {
+          color: $light_gray;
+          font-size: 12px;
+          margin-top: 15px;
+          float: left;
+          .member {
+            display: inline-block;
+            padding-right: 5px;
+          }
+        }
       }
-      &__lists {
-        display: inline-block;
+      .right-header {
+        border: 1px solid $light_blue;
+        color: $light_blue;
         float: right;
-        .list {
-          display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        margin-top: 28px;
+        padding: 0 20px;
+        display: inline-block;
+        box-sizing: border-box;
+        &__button {
+          color: $light_blue;
+          text-decoration: none;
         }
-        .icon {
-          color: $white;
-          font-size: $side_header_font;
+      }
+  }
+    .messages {
+      background-color: #FAFAFA;
+      box-sizing: border-box;
+      padding: 46px 40px 0;
+      margin: 0;
+      height: calc(100vh - 100px - 90px);
+      .message {
+        .upper-message {
+          display: flex;
+          &__user-name {
+            color: $black;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__date {
+            color: $light_gray;
+            font-size: 12px;
+            padding-left: 10px;
+          }
         }
+        .lower-message {
+          margin-top: 10px;
+          &__content {
+            color: $black;
+            font-size: 14px;
+            margin-bottom: 40px;
+          }
+        }
+      }
+    }
+
+    .form {
+      background-color: #DDDDDD;
+      box-sizing: border-box;
+      height: 90px;
+      padding: 20px 50px 20px 40px;
+      bottom: 0;
+      &__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+      }
+      &__mask {
+        background-color: $white;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      &__submit {
+        background-color: $light_blue;
+        border: none;
+        color: $white;
+        float: right;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;
       }
     }
   
-    .groups {
-      background-color: $side_blue_light;
-      height: calc(100vh - 100px);
-      padding: 0 20px;
-      .group {
-        box-sizing: border-box;
-        padding: 20px 0 0;
-        &__name {
-          color: $white;
-          font-size: $side_group_name;
-        }
-        &__message {
-          color: $white;
-          font-size: $side_group_message;
-          margin-top: 5px;
-          padding-bottom: 40px;
-        }
-      }
-    }
-  }
-.contents {
-    background-color: #fafafa;
-    height: calc(100vh - 96px);
-    width: 100%;
-    &__left  {
-        background-color: #2f3e51;
-        height: 100%;
-        width: 300px;
-        float: left;
-    }
-    &__title {
-        color: $white;
-        font-weight: bold;
-        font-size: 15px;
-        padding: 20px 0px 5px 20px;
-    }
-    &__text {
-        color: $white;
-        font-weight: bold;
-        font-size: 11px;
-        padding: 0px 0px 40px 20px;
-    }
-
-    &__main {
-        height: 100%;
-        width: calc(100vw - 315px);
-        float: right;
-        position: relative;
-    }
-    &__name1 {
-        font-weight: bold;
-        font-size: 16px;
-        color: #434a54;
-        padding: 40px 10px 10px 40px;
-        span {
-            font-size: 12px;
-            color: #999999;
-            }
-    }
-    &__message1 {
-        font-size: 14px;
-        color: #434a54;
-        padding: 0px 0px 40px 40px;
-    }
-    &__name2 {
-        font-weight: bold;
-        font-size: 16px;
-        color: #434a54;
-        padding: 0px 10px 10px 40px;
-        span {
-            font-size: 12px;
-            color: #999999;
-            }
-    }
-    &__message2 {
-        font-size: 14px;
-        color: #434a54;
-        padding: 0px 0px 40px 40px;
-    }
-    .footer {
-        height: 90px;
-        width: 100%;
-        box-sizing: border-box;
-        background-color: #ddd;
-        bottom: 0;
-        position: absolute;
-        z-index: 1;
-        .input-box{
-            display: block;
-            height: 50px;
-            line-height: 50px;
-            width: 80%;
-            float: left;
-            margin: 20px 10px 20px 40px;
-            color: #434a54;
-            position: relative;
-            
-            &__text{
-                height: 50px;
-                width: 100%;
-                padding-left: 10px;
-                font-size: 16px; 
-            }
-
-            &__btn{
-                font-size: 1.3rem;
-                position: absolute;
-                top: 30px;
-                right: 20%;
-                cursor: pointer;
-            }
-
-            &__image__file{
-                display: none;
-            }
-
-        }
-    }
-                
-            
-            
-        .submit-btn{
-            padding: 0px 20px;
-            margin: 20px 40px 20px 0px;
-            display: block;
-            width: 100px;
-            height: 50px;
-            color: white;
-            background-color: #38AEF0;
-            text-align: center;
-            line-height: 50px;
-            float: right;
-        }   
 }
-

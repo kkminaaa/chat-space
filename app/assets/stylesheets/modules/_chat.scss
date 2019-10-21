@@ -1,5 +1,5 @@
 .chat {
-  width: calc(100% - 300px);
+  width: calc(100vw - 300px);
   .header {
     box-sizing: border-box;
     height: 100px;
@@ -12,7 +12,6 @@
         margin-top: 35px;
       }
       &__members {
-        
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
@@ -25,7 +24,7 @@
     .right-header {
       border: 1px solid $light_blue;
       color: $light_blue;
-      float: right;
+      float: left;
       height: 40px;
       line-height: 40px;
       margin-top: 28px;
@@ -33,6 +32,7 @@
       &__button {
         color: $light_blue;
         text-decoration: none;
+        
       }
     }
   }
