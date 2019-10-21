@@ -41,7 +41,13 @@
         box-sizing: border-box;
         &__button {
           color: $light_blue;
-          text-decoration: none;
+          a:link { color: $light_blue; }
+          a:visited { color: $light_blue; }
+          a:hover { color: $light_blue; }
+          a:active { color:$light_blue; }
+          .edit_btn{
+            text-decoration: none;
+          }
         }
       }
   }
