@@ -22,6 +22,7 @@
       }
     }
     .right-header {
+      box-sizing: border-box;
       border: 1px solid $light_blue;
       color: $light_blue;
       float: left;
@@ -32,11 +33,9 @@
       &__button {
         color: $light_blue;
         text-decoration: none;
-        
       }
     }
   }
-
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
@@ -103,3 +102,4 @@
     }
   }
 }
+  

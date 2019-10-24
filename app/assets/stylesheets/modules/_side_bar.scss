@@ -1,10 +1,14 @@
 .side-bar {
+  height: 100%;
   display: inline-block;
   box-sizing: border-box;
   color: $white;
   width: 300px;
   float: left;
   position: relative;
+  overflow: scroll; 
+  overflow-x: hidden;
+  background-color: $side_blue_light;
   .header {
     background-color: $side_blue_dark;
     height: 100px;
