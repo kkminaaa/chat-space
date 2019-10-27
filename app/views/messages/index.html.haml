@@ -30,7 +30,7 @@
             = group_user.user.name
     .right-header
       .right-header__button
-        = link_to edit_group_path(current_user),class: 'edit_btn' do
+        = link_to edit_group_path(@group),class: 'edit_btn' do
           Edit
   .messages
     = render @messages

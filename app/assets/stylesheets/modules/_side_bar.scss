@@ -6,8 +6,7 @@
   width: 300px;
   float: left;
   position: relative;
-  overflow: scroll; 
-  overflow-x: hidden;
+  overflow-y: scroll; 
   background-color: $side_blue_light;
   .header {
     background-color: $side_blue_dark;
@@ -31,7 +30,7 @@
       }
     }
   }
-
+  
   .groups {
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
@@ -51,5 +50,8 @@
       }
     }
   }
+}
+.side-bar::-webkit-scrollbar {
+  display:none;
 }
 
