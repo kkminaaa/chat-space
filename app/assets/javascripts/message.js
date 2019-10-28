@@ -1,56 +1,72 @@
-$(function(){
-  function appendUser(user){
-    var html =  `<div class="chat-group-user clearfix">
-                          <p class="chat-group-user__name">${user.name}</p>
-                            <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
+$(document).ready(function(){
+  function buildHTML(message){
+    var image = (message.image !==null) ?  image = `<img src="${message.image}">`: image =""
+    var html = `<div class="message" data-id= "${message.id}">
+                          <div class="upper-message">
+                          <div class="upper-message__user-name">
+                            ${message.name} 
+                          </div>
+                          <div class="upper-message__date">
+                            ${message.date}
+                          </div>
+                          </div>
+                          <div class="lower-message">
+                          <p class="lower-message__content">
+                            ${message.content}
+                          </p>
+                          <p class='lower-message__image'>
+                            ${image}
+                          </p>
+                          </div>
                         </div>`
-    $("#user-search-result").append(html);
+    return html;
   }
-  function appendErrUser() {
-    var html = `<div class="chat-group-user clearfix">
-                            <p class="chat-group-user__name">ユーザーが見つかりません</p>
-                        </div>`
-     $("#user-search-result").append(html);
-  }
-  function appendDeleteUser(username,userid) {
-    var html = `<input value="${userid}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userid}" />
-                          <div class="chat-group-user clearfix" id="${userid}">
-                            <p class="chat-group-user__name">${username}</p>
-                              <a class="chat-group-user__remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${userid}"  data-user-name="${username}">削除</a>
-                          </div>`
-    $(".js-add-user").append(html);
-  }
-  
-  $("#user-search-field").on("keyup",function(){
-    let input = $("#user-search-field").val();
+
+  $('#new_message').on('submit',function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action')
     $.ajax({
-      type: 'GET',  
-      url: '/users',
-      data: {keyword: input},
-      dataType: 'json'
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
-      .done(function(users){
-        $("#user-search-result").empty();
-        if (users.length !== 0){
-          users.forEach(function(user){
-            appendUser(user);
-          });
-        }
-        else {
-          appendErrUser();
-        }
+    .done(function(message){
+      var html = buildHTML(message);
+      $('.messages').append(html);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
+      $('.form__submit').attr('disabled', false);
+      $('#new_message')[0].reset();
+    })
+    .fail(function(){
+      alert('error');
+    })
+  })
+
+  var reloadMessages = function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){   
+    var last_message_id = $('.message:last').data('id');
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      var insertHTML='';
+      messages.forEach(function(message){
+        insertHTML =buildHTML(message);
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
       })
-      .fail(function(){
-        alert("ユーザー検索に失敗しました");
-      })
-  });
-  $(document).on('click',".chat-group-user__btn--add",function(){
-    userName = $(this).attr("data-user-name");
-    userId = $(this).attr("data-user-id");
-    $(this).parent().remove();
-    appendDeleteUser(userName, userId);
-  });
-  $(document).on('click',".chat-group-user__btn--remove",function(){
-    $(this).parent().remove();
-  });
+    })
+    .fail(function(){
+      alert('error');
+    });
+  };
+};
+  setInterval(reloadMessages, 5000);
 });
