@@ -38,6 +38,9 @@
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
+      .grouplink {
+        text-decoration-line: none;
+      }
 
       &__name {
         color: $white;
@@ -48,10 +51,14 @@
         font-size: $side_group_message;
         margin-top: 5px;
       }
+      
     }
   }
 }
 .side-bar::-webkit-scrollbar {
   display:none;
 }
+
+
+
 

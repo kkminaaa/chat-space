@@ -10,7 +10,7 @@ $(document).ready(function(){
     var html = `<div class="chat-group-user clearfix">
                             <p class="chat-group-user__name">ユーザーが見つかりません</p>
                         </div>`
-     $("#user-search-result").append(html);
+    $("#user-search-result").append(html);
   }
   function appendDeleteUser(username,userid) {
     var html = `<input value="${userid}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userid}" />
